@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- <meta http-equiv="refresh" content="3"> -->
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+    <title>Newsletter sign-up form with success message</title>
+<link rel="stylesheet" href="assets/fonts/Roboto-Regular.ttf">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    :root {
+
+/* ## Colors */
+
+/* ### Primary */
+
+--Red: hsl(4, 100%, 67%);
+
+/* ### Neutral */
+
+--Blue-800: hsl(234, 29%, 20%);
+--Blue-700: hsl(235, 18%, 26%);
+--Grey: hsl(0, 0%,58%);
+--White: hsl(0, 0%, 100%);
+
+/* ## Typography */
+
+/* ### Body Copy */
+
+--Font-size-paragraph: 16px;
+
+/* ### Font */
+
+--font-weight-regular: 400;
+--font-weight-bold: 700;
+/* - Family: [Roboto](https://fonts.google.com/specimen/Roboto) */
+
+/* #Spacing  */
+--Spacing-xxs: 4px;
+--Spacing-xs: 8px;
+--Spacing-s: 16px;
+--Spacing-m: 24px;
+--Spacing-l: 32px;
+--Spacing-xl: 40px;
+--Spacing-xxl: 128px;
+
+
+    }
+    body{
+      font-family:"Roboto", sans-serif;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      width: 100vw;
+      height: 100vh;
+      background: var(--Blue-700);
+    }
+
+    .card{
+      width: 928px;
+      height: 641px;
+      padding: var(--Spacing-m);
+      border-radius: 32px;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      background: var(--White);
+
+
+@media screen and (max-width: 960px) {
+        flex-direction: column-reverse;
+        justify-content: flex-start;
+        align-items: center;
+        padding: 0;
+        width: 576px;
+        height: auto;
+        
+      }
+
+      @media screen and (max-width: 576px) {
+        width: 376px;
+        padding: 0;
+        border-radius: 0;
+      }
+    }
+
+    .content{
+      width: 376px;
+      height: 446px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: var(--Spacing-xl);
+      gap: var(--Spacing-xl);
+      margin: auto;
+
+      @media screen and (max-width: 960px) {
+        width: 576px;
+        justify-content:space-between;
+        align-items: space-between;
+        height: auto;
+      }
+
+      @media screen and (max-width: 576px) {
+        width: 376px;
+      }
+    }
+
+    .main{
+      width: 376px;
+      height: 244px;
+      gap: var(--Spacing-m);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-start;
+      gap: var(--Spacing-s);
+
+      @media screen and (max-width: 576px) {
+        width: 320px;
+        height: auto;
+        
+    }}
+
+    .form{
+      width: 376px;
+      height: 162px;
+      @media screen and (max-width: 576px) {
+        width: 320px;
+        height: auto;
+      }
+    }
+.illustration img{
+  width: 400px;
+  height: 593px;
+
+  @media screen and (max-width: 960px) {
+    width: 576px;
+    height: auto;
+    margin: -0.8px 0 0 0;
+  }
+
+  @media screen and (max-width: 576px) {
+    width: 376px;
+    height: auto;
+  }
+}
+  .title{
+    display: block;
+    font-size: 56px;
+    font-weight: bold;
+    line-height: 100%;
+    color: var(--Blue-800);
+
+@media screen and (max-width: 960px) {
+display: block;
+}
+
+    @media screen and (max-width: 576px) {
+      font-size: 40px;
+      text-align: left;
+    }
+  }
+  .title-content{
+    font-size: 16px;
+    font-weight: var(--font-weight-regular);
+    line-height: 150%;
+    color: var(--Blue-700);
+  }
+.title-list{
+  list-style: none;
+  padding-left: 0;
+
+  & li{
+    font-size: 16px;
+    font-weight: var(--font-weight-regular);
+    line-height: 150%;
+    color: var(--Blue-700);
+    position: relative;
+    padding-left: var(--Spacing-l);
+     font-size: 16px;
+    font-weight: var(--font-weight-regular);
+    line-height: 150%;
+    color: var(--Blue-700);
+    padding-bottom: var(--Spacing-s);
+
+ &::before{
+    content: url('./assets/images/icon-list.svg');
+    position: absolute;
+    top: 0;
+    left: 0;
+ }}}
+
+    .label-group{
+      display: flex;
+      justify-content: space-between;
+
+    }
+
+    .label-content{
+      font-size: 12px;
+      color: var(--Red);
+      /* display: none; */
+    }
+
+    label{
+      font-size: 12px;
+      font-weight: var(--font-weight-bold);
+      line-height: 150%;
+      letter-spacing: 0%;
+      color: var(--Blue-800);
+      display: block;
+      margin-bottom: var(--Spacing-xs);
+    }
+    input[type="email"]{
+      width: 100%;
+      margin-bottom: var(--Spacing-m);
+      border: 1px solid var(--Grey);
+      border-radius: 8px;
+      line-height: 150%;
+      padding: var(--Spacing-s);
+      font-size: var(--Font-size-paragraph);
+      color: var(--Grey);
+      letter-spacing: 1px;
+ &:is(.error)
+  {
+    border: 1px solid var(--Red);
+    background: hsl(4, 100%, 95%);
+    color: var(--Red);
+  }
+        &:hover{
+        border: 1px solid var(--Blue-800);
+      }
+    }
+    #btn{
+      width: 100%;
+      border-radius: 8px;
+      padding: var(--Spacing-s);
+      background-color: var(--Blue-800);
+      color: var(--White);
+      border: none;
+      font-size: 14px;
+      font-weight: var(--font-weight-bold);
+      cursor: pointer;
+       line-height: 150%;
+      
+       &:hover{
+        background-image: linear-gradient(to right,#FF6A3A, #FF527B);
+        box-shadow: 0px 5px 20px 0px #FF6A3A;
+       }
+    }
+      
+    
+</style>
+</head>
+<body>
+
+  <!-- Sign-up form start -->
+<div class="card">
+<div class="content">
+  <section class="main">
+    <h1 class="title">Stay updated!</h1>
+    <p class="title-content">Join 60,000+ product managers receiving monthly updates on:</p>
+    <ul class="title-list">
+      <li>Product discovery and building what matters</li>
+      <li>Measuring to ensure updates are a success</li>
+      <li>And much more!</li>
+    </ul>
+  </section>
+
+<section class="form">
+    <form action="">
+        <div class="label-group">
+          <label for="email">Email address</label>
+          <p class="label-content">Valid email required</p>
+        </div>
+        
+        <input type="email" id="email" name="email" placeholder="email@company.com" class="error" required>
+        <button id="btn" onclick="myFunction()">Subscribe to monthly newsletter</button>
+    </form>
+  </section>
+</div>
+<div class="illustration">
+  <picture>
+    <source media="(max-width: 576px)" srcset="./assets/images/illustration-sign-up-mobile.svg">
+   <source media="(max-width: 960px)" srcset="./assets/images/illustration-sign-up-tablet.svg"> 
+<img src="./assets/images/illustration-sign-up-desktop.svg" alt="Sign up illustration">
+  </picture>
+  
+</div>
+  
+
+  <!-- Sign-up form end -->
+
+  <!-- Success message start -->
+<!-- 
+  Thanks for subscribing!
+
+  A confirmation email has been sent to ash@loremcompany.com. 
+  Please open it and click the button inside to confirm your subscription.
+
+  Dismiss message -->
+
+  <!-- Success message end -->
+  </div>
+  <script>
+    function myFunction() {
+      document.getElementById("email").innerHTML = ;
+    }
+  </script>
+</body>
+</html>
